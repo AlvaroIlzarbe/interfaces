@@ -1,0 +1,129 @@
+/* Paleta azul eléctrico y estilos generales */
+.root {
+    -fx-font-family: "Segoe UI", Roboto, Arial;
+    -fx-base: #007BFF; /* azul eléctrico */
+    -fx-background: linear-gradient(#EAF4FF, #FFFFFF);
+}
+
+.app-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #001122; /* negro azulado */
+    -fx-padding: 12 0 12 0;
+}
+
+.menu-button {
+    -fx-background-color: linear-gradient(#00a0ff, #0066cc);
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 18 12 18;
+    -fx-pref-width: 160px;
+    -fx-pref-height: 90px;
+    -fx-content-display: TOP;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: linear-gradient(#33b0ff, #007bff);
+}
+
+.content-panel {
+    -fx-background-color: linear-gradient(#DFF4FF, #FFFFFF);
+    -fx-padding: 12;
+    -fx-background-radius: 8px;
+    -fx-border-color: #dfeffb;
+    -fx-border-width: 1px;
+}
+
+.button {
+    -fx-font-weight: bold;
+}
+
+.button:default {
+    -fx-background-color: linear-gradient(#00a0ff, #0077dd);
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.12) , 6,0,0,1 );
+}
+
+/* Botón volver / secundario */
+.button:pressed, .button:focused {
+    -fx-opacity: 0.95;
+}
+
+.button:armed {
+    -fx-opacity: 0.9;
+}
+
+.content-panel .label {
+    -fx-font-size: 13px;
+}
+
+.icon-emoji {
+    -fx-font-size: 28px;
+    -fx-padding: 4 0 0 0;
+}
+
+/* estilo del menú bottom */
+.bottom-menu {
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* botones secundarios (volver) */
+.button:default .content-panel .button {
+    -fx-background-color: linear-gradient(#f0f0f0, #e6e6e6);
+    -fx-text-fill: #001122;
+}
+
+.big-menu-button {
+    -fx-pref-width: 140px;
+    -fx-pref-height: 140px;
+    -fx-font-size: 14px;
+    -fx-background-color: linear-gradient(#0096ff, #0066b3);
+    -fx-text-fill: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 6,0,0,2);
+}
+
+.app-subtitle {
+    -fx-font-size: 18px;
+    -fx-text-fill: #002233; /* más oscuro */
+    -fx-font-weight: bold;
+}
+
+/* Login dialog styles */
+.login-root {
+    -fx-background-color: linear-gradient(#EAF6FF, #FFFFFF);
+    -fx-padding: 14px;
+    -fx-border-radius: 8px;
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(#00a8ff, #0077cc);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.login-cancel {
+    -fx-background-color: linear-gradient(#f0f0f0, #dcdcdc);
+    -fx-text-fill: #001122;
+}
+
+/* Small bottom buttons */
+.small-menu-button {
+    -fx-pref-width: 64px;
+    -fx-pref-height: 64px;
+    -fx-background-color: linear-gradient(#f7fbff, #e6f4ff);
+    -fx-background-radius: 8px;
+    -fx-border-color: #cfe8ff;
+    -fx-border-width: 1px;
+}
+
+.small-menu-button .image-view {
+    -fx-effect: none;
+}

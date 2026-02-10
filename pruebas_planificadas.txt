@@ -1,0 +1,184 @@
+Pruebas del proyecto - Resumen profesional
+
+1. Pruebas de validación de datos
+
+- Validación de campos obligatorios
+  Verificar que los campos marcados como obligatorios se rechacen cuando estén vacíos o nulos. Asegura integridad básica de entrada antes de persistir datos.
+
+- Validación de tipos de datos
+  Comprobar que los datos recibidos coinciden con los tipos esperados (números, fechas, textos). Previene errores de parsing y condiciones de fallo en runtime.
+
+- Validación de rangos y formatos
+  Validar límites numéricos y formatos (ej. fechas, emails, IPs). Evita datos inválidos que puedan causar errores funcionales o de negocio.
+
+- Validación de valores duplicados
+  Detectar y gestionar inserciones duplicadas (por ejemplo, IDs o campos únicos) para mantener consistencia y evitar colisiones.
+
+
+2. Pruebas de gestión de usuarios
+
+- Alta de usuarios
+  Probar la creación de usuarios con datos válidos y su persistencia en el DataStore. Verifica generación correcta de ID y fecha de alta.
+
+- Modificación de usuarios (planificada)
+  Esqueleto de prueba para verificar actualizaciones de usuarios cuando se implemente la operación de edición.
+
+- Baja de usuarios (planificada)
+  Esqueleto de prueba para comprobar la eliminación de usuarios y el manejo de dependencias cuando se implemente.
+
+- Autenticación (login)
+  Verificar el flujo de autenticación (credenciales correctas e incorrectas) y la respuesta de la UI ante intentos fallidos.
+
+- Control de roles y permisos (planificada)
+  Esqueleto para validar control de acceso y restricciones por rol cuando se añada enforcement en servicios y UI.
+
+
+3. Pruebas de gestión de artículos
+
+- Alta de artículos (planificada)
+  Esqueleto para crear artículos y validar persistencia cuando la API/servicio correspondiente esté completo.
+
+- Modificación de artículos (planificada)
+  Esqueleto para probar la edición de artículos y actualización de stock/ubicación.
+
+- Baja de artículos (planificada)
+  Esqueleto para validar eliminación y comprobación de integridad referencial.
+
+- Consulta de artículos
+  Probar listados y búsquedas básicas de artículos desde servicios y UI.
+
+- Validación de stock inicial
+  Verificar que el stock inicial se registre correctamente al crear un artículo y persista en JSON.
+
+
+4. Pruebas de movimientos de almacén
+
+- Entrada de mercancía (planificada)
+  Esqueleto para validar recepción y aumento de stock cuando se implemente la lógica de entrada.
+
+- Salida de mercancía (planificada)
+  Esqueleto para validar decremento de stock por salidas y comprobación de disponibilidad.
+
+- Préstamos / devoluciones
+  Probar creación de préstamos, asociación de ítems y reflejo en inventario; comprobar devoluciones básicas.
+
+- Ajustes de stock (planificada)
+  Esqueleto para verificar ajustes manuales y su persistencia.
+
+- Movimientos incorrectos o incompletos (planificada)
+  Esqueleto para comprobar rechazo y manejo de transacciones parciales cuando exista lógica de movimientos.
+
+
+5. Pruebas de control de stock
+
+- Cálculo correcto de stock (planificada)
+  Esqueleto para validar agregación de movimientos y coherencia de cantidades cuando exista la lógica centralizada.
+
+- Stock mínimo / alertas (planificada)
+  Esqueleto para comprobar notificaciones o señales cuando el stock alcance umbrales definidos.
+
+- Stock negativo (planificada)
+  Esqueleto para probar prevención y/o manejo de stock negativo según la política definida.
+
+- Actualización automática tras movimientos (planificada)
+  Esqueleto para verificar que movimientos (entradas/salidas/préstamos) actualizan stock de forma automática.
+
+
+6. Pruebas de informes y listados
+
+- Generación de informes
+  Validar que `ReportService` produce listados filtrados de préstamos y averías y que la estructura resultante es correcta.
+
+- Filtrado de informes
+  Probar combinaciones de filtros (persona, rango de fechas) y la correcta inclusión/exclusión de resultados.
+
+- Ordenación de resultados (planificada)
+  Esqueleto para probar criterios de ordenación cuando se añada soporte en las APIs de listado.
+
+- Exportación (PDF, Excel, etc.) (planificada)
+  Esqueleto para validar exportación de informes cuando se implemente la funcionalidad de exportación.
+
+
+7. Pruebas de búsqueda
+
+- Búsqueda simple
+  Verificar búsquedas directas por ID o por campos básicos y la consistencia de los resultados.
+
+- Búsqueda avanzada (planificada)
+  Esqueleto para búsquedas multi-criterio que se podrá habilitar más adelante.
+
+- Búsqueda sin resultados
+  Comprobar el comportamiento (mensajes, listas vacías) cuando no hay coincidencias.
+
+- Rendimiento de búsquedas (planificada)
+  Esqueleto para pruebas de rendimiento cuando el dataset crezca.
+
+
+8. Pruebas de integridad y consistencia
+
+- Consistencia entre tablas/datos
+  Verificar referencias entre entidades (por ejemplo, `Averia.personaReportaId` apunta a una `Persona` existente) y la coherencia tras operaciones.
+
+- Eliminaciones con dependencias (planificada)
+  Esqueleto para validar que eliminaciones no dejen referencias huérfanas cuando exista delete.
+
+- Recuperación ante errores
+  Probar comportamiento de `DataStore.saveAll` y `loadAll` ante errores I/O y la capacidad de mantener datos consistentes.
+
+
+9. Pruebas de seguridad
+
+- Accesos no autorizados
+  Comprobar rechazo de operaciones o pantallas cuando las credenciales no son válidas.
+
+- Inyección de datos
+  Validar resistencia básica a entradas malformadas o maliciosas en persistencia JSON.
+
+- Protección de datos sensibles (planificada)
+  Esqueleto para comprobar manejo de secretos/credenciales cuando se implemente persistencia segura.
+
+
+10. Pruebas de rendimiento
+
+- Carga con muchos registros (planificada)
+  Esqueleto para benchmarking con volumen alto de datos.
+
+- Respuesta del sistema (planificada)
+  Esqueleto para medir latencias en operaciones críticas.
+
+- Uso concurrente (planificada)
+  Esqueleto para validar thread-safety y condiciones de carrera en DataStore y servicios.
+
+
+11. Pruebas de usabilidad
+
+- Navegación
+  Verificar que la estructura de paneles y diálogos permite realizar las tareas principales sin bloqueos.
+
+- Mensajes de error
+  Comprobar claridad y utilidad de mensajes mostrados en la UI ante errores de entrada o I/O.
+
+- Claridad de formularios
+  Evaluar que los formularios contienen los campos necesarios y etiquetas comprensibles.
+
+
+12. Pruebas de recuperación
+
+- Copias de seguridad (planificada)
+  Esqueleto para validar estrategia de backup y restauración cuando se decida implementar copias.
+
+- Restauración de datos
+  Probar `DataStore.loadAll` para asegurar que una restauración desde JSON recrea el estado esperado.
+
+- Fallos inesperados
+  Validar que excepciones en persistencia o load no dejan el sistema en un estado inconsistente.
+
+
+Próximos pasos sugeridos:
+- Confirmar si deseas que genere esqueletos JUnit (JUnit 5) para las pruebas prioritarias y las planificadas marcadas como "planificada"; puedo crear tests @Disabled para las planificadas.
+- Si quieres el archivo en otra ubicación o nombre, indícalo y lo actualizo.
+
+
+Archivo generado: pruebas_planificadas.txt
+Ubicación: C:\Users\2dam\Downloads\GestionAlmacen\GestionAlmacen\pruebas_planificadas.txt
+

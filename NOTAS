@@ -1,0 +1,12 @@
+Notas de actualizaciones: 
+-- Faltan flechas de navegación 
+-- Mejorar la Interfaz, hacerla mas visual e intutitiva y bonita 
+-- botón generar informe gestión de almacen -- no se ve y no los almacena en memoria 
+-- existe un botón de volver que no se ve 
+-- en el de dashboard -- cambiar nombre a algo mas intutiivo, no se almacenan los informes generados 
+-- en el de gestión de almacen el item no tiene nada revisarlo 
+-- en el de gestión de almacen que por defecto en gestión de incidencias salga todas // no se ve las opciones del desplegable si no se pasa el cursosr por encima, modificar el color de esta 
+-- en las pestañas de gestión de personas y de informes la interfaz es tan grande que no deja ver los botones de navegación de abajo, adaptar esto: opciones viables que sean buenas: 
+	- hacer una linea con los 5 botones e iconos para navegar
+	- añadir flechas hacia adelante y hacia atrás para que quede mejor organizado 
+-- hacer los test unitarios que están en el documento --> Roberto 
